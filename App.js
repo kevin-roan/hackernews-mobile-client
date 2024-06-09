@@ -13,7 +13,8 @@ const App = () => {
   const [isLoading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
-  }, 4000);
+  }, 100);
+
   const [fontsLoaded, fontError] = useFonts({
     "Inter-Black": require("./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf"),
   });
