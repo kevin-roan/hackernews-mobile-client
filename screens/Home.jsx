@@ -13,6 +13,7 @@ import NavBar from "../components/NavBar";
 import ThreadCard from "../components/ThreadCard";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import SplashScreenView from "./SplashScreen";
 
 const Home = () => {
   const [stories, setStories] = useState([]);
@@ -43,11 +44,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="orange" />
-      </View>
-    );
+    return <SplashScreenView />;
   }
   return (
     <LinearGradient

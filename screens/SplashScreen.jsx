@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text } from "react-native";
+import { View, ActivityIndicator, Text } from "react-native";
 
 const SplashScreenView = () => {
   return (
@@ -15,6 +15,11 @@ const SplashScreenView = () => {
         </Text>
         <Text className="text-white">Crafted by ~r/kevinroan</Text>
       </View>
+      <ActivityIndicator
+        size="large"
+        color="orange"
+        style={{ paddingVertical: 30 }}
+      />
     </View>
   );
 };

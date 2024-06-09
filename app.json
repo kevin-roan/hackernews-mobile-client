@@ -18,7 +18,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kevinroan.hackernews"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -27,9 +28,16 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf"]
+          "fonts": [
+            "./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf"
+          ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e089682e-931f-4c05-b8f3-a9c6f0bca41f"
+      }
+    }
   }
 }
