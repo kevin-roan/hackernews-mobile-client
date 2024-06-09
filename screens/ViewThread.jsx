@@ -36,7 +36,11 @@ function ViewThread() {
         <Text className="text-[#ffc700]">!</Text>
       </Text>
       <View className="flex-1 border-[0.5px] rounded-[12px] border-gray my-4 p-1 bg-white">
-        <WebView source={{ uri: "https://expo.dev" }} />
+        <WebView
+          source={{
+            uri: "https://blog.archive.org/2024/06/01/the-backrooms-of-the-internet-archive/",
+          }}
+        />
       </View>
     </LinearGradient>
   );

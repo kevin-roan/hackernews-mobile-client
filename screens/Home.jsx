@@ -1,13 +1,54 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { View, Text, ScrollView, Image } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  StyleSheet,
+  ActivityIndicator,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import WebviewCard from "../components/WebviewCard";
 import NavBar from "../components/NavBar";
 import ThreadCard from "../components/ThreadCard";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
-  // <View className="flex-1 bg-[#222222] py-10 px-5 ">
+  const [stories, setStories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getTopStories = async () => {
+    try {
+      const response = await axios.get(
+        "https://hacker-news.firebaseio.com/v0/topstories.json",
+      );
+      const storyIds = response.data.slice(0, 10);
+      const storyPromises = storyIds.map(async (id) => {
+        const storyResponse = await axios.get(
+          `https://hacker-news.firebaseio.com/v0/item/${id}.json`,
+        );
+        return storyResponse.data;
+      });
+      const stories = await Promise.all(storyPromises);
+      setStories(stories);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching top stories:", error);
+    }
+  };
+
+  useEffect(() => {
+    getTopStories();
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="orange" />
+      </View>
+    );
+  }
   return (
     <LinearGradient
       colors={[
@@ -39,24 +80,30 @@ const Home = () => {
         <Text className="text-[#ffc700]">!</Text>
       </Text>
       <ScrollView className="theadcontainer py-3">
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
-        <ThreadCard />
+        {stories.map((item) => {
+          console.log(item.time);
+          return (
+            <ThreadCard
+              key={item.id}
+              title={item.title}
+              type={item.type}
+              url={item.url}
+              author={item.by}
+            />
+          );
+        })}
       </ScrollView>
       <NavBar />
     </LinearGradient>
   );
 };
 
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#222222",
+  },
+});
 export default Home;

@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const ThreadCard = () => {
+const ThreadCard = ({ title, type, url, author }) => {
+  // console.log("url of the thead", url);
   return (
     <View
       className="bg-[#1E1E1E]"
@@ -19,12 +20,12 @@ const ThreadCard = () => {
         numberOfLines={1}
         ellipsizeMode="tail"
       >
-        The Backrooms of the Internet Archive (Archiv..
+        {title}
       </Text>
-      <Text className="text-[#DADADA]">40 Points by padding 16 hours ago</Text>
+      <Text className="text-[#DADADA]">40 Points by {author} 16 hours ago</Text>
       <View className="flex-row my-1">
         <View className="bg-[#FFC700] w-[10%] rounded-3xl items-center">
-          <Text className="text-black text-center">Hide</Text>
+          <Text className="text-black text-center">{type}</Text>
         </View>
         <Text className="text-[#dadada] px-4">| {"  "} 77 Comments</Text>
       </View>

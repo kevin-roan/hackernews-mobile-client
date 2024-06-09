@@ -33,7 +33,7 @@ const App = () => {
   return (
     <View className="flex-1" onLayout={onLayoutRootView}>
       <StatusBar />
-      {isLoading ? <SplashScreenView /> : <ViewThread />}
+      {isLoading ? <SplashScreenView /> : <Home />}
     </View>
   );
 };
