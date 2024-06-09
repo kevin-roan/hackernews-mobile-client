@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import ViewThread from "./screens/ViewThread";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,7 +33,7 @@ const App = () => {
   return (
     <View className="flex-1" onLayout={onLayoutRootView}>
       <StatusBar />
-      {isLoading ? <SplashScreenView /> : <Home />}
+      {isLoading ? <SplashScreenView /> : <ViewThread />}
     </View>
   );
 };
