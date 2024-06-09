@@ -81,12 +81,8 @@ const Home = () => {
       </Text>
       <ScrollView className="theadcontainer py-3">
         {stories.map((item) => {
-          // unix time to ist, and time diff in hours
-          let date = new Date(item.time * 1000);
-          let current_date = new Date();
-          let diffInMilliseconds = current_date - date;
-          let diffInHours = diffInMilliseconds / (1000 * 60 * 60);
-          let timeDiff = diffInHours.toFixed();
+          // this also provides actual description, for now its useless
+          // console.log(item.text);
           return (
             <ThreadCard
               key={item.id}
@@ -94,7 +90,9 @@ const Home = () => {
               type={item.type}
               url={item.url}
               author={item.by}
-              timeDiff={timeDiff}
+              time={item.time}
+              score={item.score}
+              noOfcomments={item.kids.length}
             />
           );
         })}
