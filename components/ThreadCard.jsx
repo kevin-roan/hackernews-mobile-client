@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const ThreadCard = ({ title, type, url, author }) => {
+const ThreadCard = ({ title, type, url, author, timeDiff }) => {
   // console.log("url of the thead", url);
+  console.log(timeDiff);
   return (
     <View
       className="bg-[#1E1E1E]"
@@ -22,7 +23,9 @@ const ThreadCard = ({ title, type, url, author }) => {
       >
         {title}
       </Text>
-      <Text className="text-[#DADADA]">40 Points by {author} 16 hours ago</Text>
+      <Text className="text-[#DADADA]">
+        40 Points by {author} {timeDiff} hours ago
+      </Text>
       <View className="flex-row my-1">
         <View className="bg-[#FFC700] w-[10%] rounded-3xl items-center">
           <Text className="text-black text-center">{type}</Text>
