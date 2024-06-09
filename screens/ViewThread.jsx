@@ -4,7 +4,8 @@ import { View, Text, StatusBar } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
 
-function ViewThread() {
+function ViewThread({ route }) {
+  const { url } = route.params;
   return (
     <LinearGradient
       colors={[
@@ -38,7 +39,7 @@ function ViewThread() {
       <View className="flex-1 border-[0.5px] rounded-[12px] border-gray my-4 p-1 bg-white">
         <WebView
           source={{
-            uri: "https://blog.archive.org/2024/06/01/the-backrooms-of-the-internet-archive/",
+            uri: url,
           }}
         />
       </View>

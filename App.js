@@ -1,9 +1,11 @@
 import { View, Text } from "react-native";
 import SplashScreenView from "./screens/SplashScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import Home from "./screens/Home";
 import { useCallback } from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import ViewThread from "./screens/ViewThread";
@@ -30,10 +32,25 @@ const App = () => {
     return null;
   }
 
+  // {isLoading ? <SplashScreenView /> : <Home />}
+  const Stack = createNativeStackNavigator();
   return (
     <View className="flex-1" onLayout={onLayoutRootView}>
       <StatusBar />
-      {isLoading ? <SplashScreenView /> : <Home />}
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ViewThread"
+            component={ViewThread}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const ThreadCard = ({
   title,
@@ -30,8 +31,11 @@ const ThreadCard = ({
     timeDifferenceText = `${timeDiff} hours ago`;
   }
 
+  const navigation = useNavigation();
+
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => navigation.navigate("ViewThread", { url: url })}
       className="bg-[#1E1E1E]"
       style={{
         borderRadius: 12,
@@ -67,7 +71,7 @@ const ThreadCard = ({
           | {"  "} {noOfcomments} Comments
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
