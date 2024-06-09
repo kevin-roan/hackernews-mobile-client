@@ -13,3 +13,4 @@ To run the project, `npm i && npx expo start`
  1. Localstorage implimentaion for saved threads
  2. Search through threads
  3. Webview optimization
+ 4. Sorting || Filter
