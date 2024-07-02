@@ -10,7 +10,7 @@ const SplashScreenView = () => {
           className="text-white "
           style={{ fontFamily: "Inter-Black", fontSize: 50 }}
         >
-          Hacker News!
+          Dot Dev!
           <Text className="text-[#FFC700]">!</Text>
         </Text>
         <Text className="text-white">Crafted by ~r/kevinroan</Text>

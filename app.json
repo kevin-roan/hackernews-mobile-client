@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "hackernews",
-    "slug": "hackernews",
+    "name": "DotDev",
+    "slug": "DotDev",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,7 +19,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.kevinroan.hackernews"
+      "package": "com.kevinroan.dotdev"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,9 +28,7 @@
       [
         "expo-font",
         {
-          "fonts": [
-            "./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf"
-          ]
+          "fonts": ["./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf"]
         }
       ]
     ],

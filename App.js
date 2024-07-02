@@ -55,3 +55,7 @@ const App = () => {
   );
 };
 export default App;
+
+// todo,
+// save usefull threads to persistence
+// increase threads limit

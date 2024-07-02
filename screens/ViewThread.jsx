@@ -17,7 +17,7 @@ function ViewThread({ route }) {
         "hsla(0, 0%, 13%, 1)",
         "hsla(0, 0%, 13%, 1)",
         "hsla(0, 0%, 13%, 1)",
-        "hsl(0, 100%, 50%)",
+        "hsl(40, 0%, 30%)",
       ]}
       start={{ x: 0, y: 1 }}
       end={{ x: 0, y: 0 }}
@@ -33,7 +33,7 @@ function ViewThread({ route }) {
         className="text-white "
         style={{ fontFamily: "Inter-Black", fontSize: 35, paddingTop: 10 }}
       >
-        Hacker news
+        Thead
         <Text className="text-[#ffc700]">!</Text>
       </Text>
       <View className="flex-1 border-[0.5px] rounded-[12px] border-gray my-4 p-1 bg-white">
